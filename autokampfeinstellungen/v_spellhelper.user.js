@@ -4,13 +4,13 @@
 // @description Personalisierung der Autokampfeinstellungen
 // @include     http://arthoria.de/*
 // @run-at      document-end
-// @version     1.4
+// @version     1.5
 // @grant       none
 
 // ==/UserScript==
 
 var spellhelperData = {};
-var spellhelperVersion = 1.4;
+var spellhelperVersion = 1.5;
 
 window.addEventListener ("load", loadSpellhelper, false);
 
