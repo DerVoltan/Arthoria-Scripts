@@ -5,10 +5,10 @@
 // @include       http://arthoria.de/*
 // @run-at        document-end
 // @grant         none
-// @version       1.4
+// @version       1.5
 
 // ==/UserScript==
-var statisticsVersion = 1.4; //GM_info.script.version won't work with opera12
+var statisticsVersion = 1.5; //GM_info.script.version won't work with opera12
 var data = {}; // exactly. data. because it contains data. seems legit.
 var nbsp = "\xa0";
 var nbspSpan = "<span>\xa0\xa0</span>";
@@ -454,7 +454,7 @@ function statisticsScriptVersioncontrol(){
   }else{
     if(nextScriptupdate <= Date.now()){
       var statisticsRemoteversion = null;
-      var statisticsRemoteversionURL = "http://voltan.bplaced.net/scriptupdates/statistics_version.txt?t="+Date.now();
+      var statisticsRemoteversionURL = "https://raw.githubusercontent.com/DerVoltan/Arthoria-Scripts/master/versioncontrol.json?t="+Date.now();
       var xhr = new XMLHttpRequest();
       if("withCredentials" in xhr){
         // XHR for Chrome/Firefox/Opera/Safari.
@@ -469,7 +469,8 @@ function statisticsScriptVersioncontrol(){
       if (xhr != null){
         xhr.onload = function(){
           if(xhr.responseText){
-            statisticsRemoteversion = parseFloat(xhr.responseText);
+            var response = JSON.parse(xhr.responseText);
+            statisticsRemoteversion = parseFloat(response.statistics);
             if(statisticsRemoteversion != null){
               if(statisticsVersion < statisticsRemoteversion){
                 createStatisticsScriptnotification(statisticsVersion, statisticsRemoteversion);
@@ -499,7 +500,7 @@ function createStatisticsScriptnotification(statisticsVersion, statisticsRemotev
   $(statisticsNotificationSpan).attr("id", "statisticsNotificationSpan");
   var statisticsUpdateButton = document.createElement("a");
   $(statisticsUpdateButton).attr({
-    "href": "http://voltan.bplaced.net/scriptupdates/v_statistics.user.js",
+    "href": "https://raw.githubusercontent.com/DerVoltan/Arthoria-Scripts/master/statistiken/v_statistics.user.js",
     "target": "_blank"
   });
   $(statisticsUpdateButton).html("Update!");
@@ -575,7 +576,7 @@ function getHelpText(section){
     break;
 
     case "manualInput":
-      text = "Solltest du einmal an einem Endgerät sein, auf der das Tool nicht funktionsfähig oder installiert ist, kannst du dir den Text des Ereignisses einfach abspeichern (z.B. in einer Datei, einer Notiz oder per PN an dich selbst geschickt). Wenn du wieder an deinem toolbestückten Endgerät sitzt, kannst du den Text einfach in das Textfeld einfügen und zu deiner Statistik hinzufügen lassen.<br>Achtung: Das Nachtragen beachtet nur die kompletten Textausgaben des Ereignisses, funktioniert allerdings bewusst nicht für das Verstärken von Stäben. Für Zeichentafeln und das aufwerten von Phasenkristallen sind vorher in den Listen die entsprechenden Einstellungen vorzunehmen, da ansonsten keine Daten gespeichert werden.";
+      text = "Solltest du einmal an einem Endgerät sein, auf der das Tool nicht funktionsfähig oder installiert ist, kannst du dir den Text des Ereignisses einfach abspeichern (z.B. in einer Datei, einer Notiz oder per PN an dich selbst geschickt). Wenn du wieder an deinem toolbestückten Endgerät sitzt, kannst du den Text einfach in das Textfeld einfügen und zu deiner Statistik hinzufügen lassen.<br>Achtung: Das Nachtragen beachtet nur die kompletten Textausgaben des Ereignisses, funktioniert allerdings bewusst nicht für das Verstärken von Stäben. Für Zeichentafeln und das Aufwerten von Phasenkristallen sind vorher in den Listen die entsprechenden Einstellungen vorzunehmen, da ansonsten keine Daten gespeichert werden.";
     break;
 
     default:
@@ -684,6 +685,21 @@ function getLuckAmount(){
   }
   return luckAmount;
 }
+
+function getStatisticsSkillArray(){
+  return statisticsSkillArray = [
+    getLuckAmount(),
+    "PK " + data["options"]["character"]["botany"],
+    "Altarstufe " + data["options"]["character"]["altarlvl"],
+    "Gartenstufe " + data["options"]["character"]["gardenlvl"],
+    "Pferdestufe " + data["options"]["character"]["horselvl"],
+    data["options"]["character"]["faith"]? "Glaube" : "kein Glaube",
+    //data["options"]["character"]["hunt"],
+    data["options"]["character"]["librarian"]? getTranslation("librarian", "translation") : data["options"]["character"]["spotScrolls"]? getTranslation("spotScrolls", "translation") : "kein Bonus",
+    data["options"]["character"]["glyphskill"]? "Zeichenkunst" : "Standard"
+  ];
+}
+
 function setHarvestbonusFlag(line){
     if(line.indexOf(" ist mit der Gartenarbeit fertig")>-1){
       data["flags"]["garden"]["harvestbonusFlag"] += 1;
@@ -2292,16 +2308,24 @@ function modifyStatisticSelect(somedata, depth){
       var select = document.createElement("select");
       $(select).attr("id", "select"+depth);
       var firstitem = true;
+      var statisticsSkillArray = getStatisticsSkillArray();
       $.each(somedata, function(key, value){
         var option = document.createElement("option");
         $(option).attr({
           value: key,
           text: getTranslation(key, "translation")
         });
+
+        if($.inArray(key, statisticsSkillArray) != -1){
+          $("#select"+depth+" option:selected").removeAttr("selected");
+          $(option).attr("selected", "selected");
+          firstitem = false;
+        }
         if(firstitem === true){
           $(option).attr("selected", "selected");
           firstitem = false;
         }
+
         $(select).append(option);
       });
       $("#statisticsMenuDiv").append(select).append(nbspSpan);
@@ -2584,7 +2608,7 @@ function getTranslation(selector, target){
     artifactRake: "Gartenharke aktiv",
     luckmonument: "Gilden-Glücksmonument",
     autoupdate: "Auto-Update",
-    lastupdate: "Letztes Update",
+    lastupdate: "Letztes Update (Charakterinfos)",
     scriptversion: "Scriptversion",
     prices: "Preise",
     nothing: "nichts",
@@ -3401,6 +3425,8 @@ function researchDataInput(line){
     var researchbonus = getTranslation("librarian", "translation");
   }else if(data["options"]["character"]["spotScrolls"] == true){
     var researchbonus = getTranslation("spotScrolls", "translation");
+  }else{
+    var researchbonus = "kein Bonus"
   }
 
   try{
@@ -3676,9 +3702,9 @@ function plumbumclumpDataInput(line){
 //####################################################################
 
 function statisticsInternalVersioncontrol(){
-  if(statisticsVersion != data["options"]["character"]["scriptversion"]){
+  if("v"+statisticsVersion != data["options"]["character"]["scriptversion"]){
     var installedversion = parseFloat(data["options"]["character"]["scriptversion"].replace(/v/g, ""));
-    if(installedversion < 0.95){ //update to 0.98
+    if(installedversion < 0.95){
       data["options"]["tracking"]["plumbumclump"] = false;
       installedversion = 0.98;
     }
@@ -3702,6 +3728,10 @@ function statisticsInternalVersioncontrol(){
         fix1p3(data["garden"]);
       }
       installedversion = 1.4;
+    }
+
+    if(installedversion < 1.5){
+      installedversion = 1.5;
     }
     //add code here, if there were some changes to the DB between versions
 

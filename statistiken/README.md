@@ -6,6 +6,11 @@ Ein besonderer Dank gilt **Elandion** und **Mila**, die mir eine enorme Menge Fe
 Auch danke ich **kaefer** für den Hinweis zu der externen Versionskontrolle und den Verweis auf die Steine der Geduld.
 
 ## Changelog
+v1.5
+ - Auswahl in Statistikübersicht springt sofort auf die aktuell aktiven Werte des Charakters
+ - Versionskontrolle verweist nun auf Github
+ - Textfix & Bugfix
+
 v1.4
  - Handling von Lederbeuteln verbessert
  - Bugfix fürs manuelle Eintragen von Gartenergebnissen (samt Bereinigung)
@@ -14,7 +19,7 @@ v1.4
 
 v1.3
  - Bug in der Bereinigungsfunktion des vorherigen Bugfixes wurde beseitigt
- - Erstellung der Einstellungen ge�ndert und Fehler dabei beseitigt
+ - Erstellung der Einstellungen geändert und Fehler dabei beseitigt
 
 v1.2
  - falsches Parsen von Begleiterergebnissen behoben und Datensatz davon bereinigt
@@ -30,7 +35,7 @@ v1.1
  - Hinweis beim Erststart, sich das Tool erstmal genauer anzusehen
  - Möglichkeit, alle Überwachungsoptionen auf einmal invertieren
  - Auto-Update kann nun nach Speichern der Optionen direkt triggern
- - Verk�rzung der Versionsabgleichintervalle
+ - Verkürzung der Versionsabgleichintervalle
 
 v1.0
  - Bugfix für den Begleiter
