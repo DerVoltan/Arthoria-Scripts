@@ -2,6 +2,9 @@
 Betrachtet nur das erste, nicht ausgelöschte Monster auf Gegnerseite. Könnte man deutlich weiter ausbauen (eigene Monstergruppen festlegen etc.), aber da hab ich aktuell keinen Bock zu...
 
 ## Changelog
+v1.6
+  - Versionskontrolle verweist nun auf Github
+
 v1.5
  - Script triggert nicht mehr bei Kämpfen ohne Autokampf (nur relevant für Gruppenkämpfe)
 

@@ -4,13 +4,13 @@
 // @description Personalisierung der Autokampfeinstellungen
 // @include     http://arthoria.de/*
 // @run-at      document-end
-// @version     1.5
+// @version     1.6
 // @grant       none
 
 // ==/UserScript==
 
 var spellhelperData = {};
-var spellhelperVersion = 1.5;
+var spellhelperVersion = 1.6;
 
 window.addEventListener ("load", loadSpellhelper, false);
 
@@ -371,8 +371,11 @@ function chooseSpell(){
       }
       if(spellhelperData[monstername]["ignoreSpellicons"]){
         $.each(spellhelperData[monstername]["ignoreSpellicons"], function(index, value){
+          //$("div#screen center").innerHTML().replace("s"+value+".gif&quot;></a> &nbsp; ", "s"+value+".gif&quot;></a>");
           $("div#screen center a[href*='s="+value+"']").remove();
+          //$("div#screen center").html($("div#screen center").html().replace("</a> &nbsp; &nbps; ", "</a> &nbsp; "))
         });
+
       }
     }
   }
@@ -418,7 +421,7 @@ function spellhelperScriptVersioncontrol(){
   }else{
     if(nextScriptupdate <= Date.now()){
       var spellhelperRemoteversion = null;
-      var spellhelperRemoteversionURL = "http://voltan.bplaced.net/scriptupdates/spellhelper_version.txt?t="+Date.now();
+      var spellhelperRemoteversionURL = "https://raw.githubusercontent.com/DerVoltan/Arthoria-Scripts/master/versioncontrol.json?t="+Date.now();
       var xhr = new XMLHttpRequest();
       if("withCredentials" in xhr){
         // XHR for Chrome/Firefox/Opera/Safari.
@@ -433,7 +436,8 @@ function spellhelperScriptVersioncontrol(){
       if (xhr != null){
         xhr.onload = function(){
           if(xhr.responseText){
-            spellhelperRemoteversion = parseFloat(xhr.responseText);
+            var response = JSON.parse(xhr.responseText);
+            spellhelperRemoteversion = parseFloat(response.spellhelper);
             if(spellhelperRemoteversion != null){
               if(spellhelperVersion < spellhelperRemoteversion){
                 createSpellhelperScriptnotification(spellhelperVersion, spellhelperRemoteversion);
@@ -463,7 +467,7 @@ function createSpellhelperScriptnotification(spellhelperVersion, spellhelperRemo
   $(spellhelperNotificationSpan).attr("id", "spellhelperNotificationSpan");
   var spellhelperUpdateButton = document.createElement("a");
   $(spellhelperUpdateButton).attr({
-    "href": "http://voltan.bplaced.net/scriptupdates/v_spellhelper.user.js",
+    "href": "https://raw.githubusercontent.com/DerVoltan/Arthoria-Scripts/master/autokampfeinstellungen/v_spellhelper.user.js",
     "target": "_blank"
   });
   $(spellhelperUpdateButton).html("Update!");
