@@ -28,14 +28,15 @@ Jup.
 Ja. Wenn das mal nicht so sein sollte und die „nur“ regelkonform sind, vermerke ich das schon. Xeri hat ja auch nicht den lieben langen Tag Zeit, sich durch irgendwelche Scripts zu wühlen.
 
 ##### Und wie kann ich die nutzen?
-Die Scripts können mit Greasemonkey bzw. Tampermonkey genutzt oder bei Opera 12 in den Scriptordner eingebunden werden. Wie man die hinzufügt, kann man sich ganz schnell aus dem Internet anlesen. Da gibt es genug Anleitungen.
+Die Scripts können mit Tampermonkey genutzt oder bei Opera 12 in den Scriptordner eingebunden werden. Wie man die hinzufügt, kann man sich ganz schnell aus dem Internet anlesen. Da gibt es genug Anleitungen.
 Außerdem solltest du JavaScript aktiviert haben. Das hilft ungemein, da das alles JS-Scripts sind.
 
 ##### Und wenn ich mir das nicht anlesen will?
-Direktlink zum Script aufrufen und den Installationsdialog ausführen. Oder eben in den Ordner knallen.
+Script hier raussuchen, anklicken, auf "RAW" wechseln und den Installationsdialog ausführen. Oder eben in den Ordner knallen.
 
 ##### Welche Browser können das Script eigentlich nutzen?
 Keine Ahnung. Ich versuche, die Kompatibilität zu Firefox, Chromium-Ablegern (Chrome, Vivaldi) und dem alten Opera 12 aufrecht zu erhalten. Wenn es bei anderen Browsern funktioniert, ist das gut, wenn nicht, juckt mich das nicht.
+Greasemonkey ab Version 4 wird allerdings nicht mehr unterstützt.
 
 ##### Funktioniert dein Script XY mit dem Script ABC?
 Meine Scripts sind untereinander kompatibel. Wenn sie mit Scripts von anderen Leuten nicht funktionieren, dann ist das halt so. Aber vielleicht lässt sich da was drehen - schreibt mich einfach mal an.
@@ -44,7 +45,7 @@ Meine Scripts sind untereinander kompatibel. Wenn sie mit Scripts von anderen Le
 Alles bei dir auf deinem Rechner in deinem Browser im sogenannten localStorage. Da das natürlich von/in deinem Browser gespeichert wird, werden die Daten je nach Browser auch beim Löschen von Cookies/Cache mitgelöscht.
 
 ##### Telefonieren die Scripts nach hause?
-Teilweise. Derzeit verfügen das Statistik-Script und das Script für die Autokampfeinstellungen über eine Funktion, die einmal alle zwei Tage eine Datei hier auf dem Server aufruft, sich dort die hinterlegte Nummer holt und diese dann mit der im Script selbst hinterlegten Versionsnummer abgleicht. Da gibt es dann eine Updatebenachrichtigung, falls verfügbar.
+Teilweise. Derzeit verfügen das Statistik-Script und das Script für die Autokampfeinstellungen über eine Funktion, die einmal alle zwei Tage eine Datei hier Github aufruft, sich dort die hinterlegte Nummer holt und diese dann mit der im Script selbst hinterlegten Versionsnummer abgleicht. Da gibt es dann eine Updatebenachrichtigung, falls verfügbar.
 
 ##### Was kann ich denn sonst noch fragen?
 Weiß ich nicht. Ich musste mir schon Teile dieser FAQ aus den Fingern saugen. Fühl dich frei, mich bei Fragen zu fragen.
