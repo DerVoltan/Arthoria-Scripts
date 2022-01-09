@@ -2,10 +2,10 @@
 // @name          Arthoria: Phasendrache
 // @namespace     Voltan
 // @description   Hilfslinks und -einstellungen beim Phasendrachen
-// @include       http://arthoria.de/*?p=battle*
+// @include       https://arthoria.de/*?p=battle*
 // @run-at        document-end
 // @grant         none
-// @version       1.1
+// @version       1.2
 
 // ==/UserScript==
 window.addEventListener ("load", startPhasedragonScript, false);
@@ -26,7 +26,6 @@ function startPhasedragonScript(){
     .after(createPhasedragonAnchor("Störung", 2)).after(" &#8212; ")
     .after(createPhasedragonAnchor("Heilung", 3)).after("<br>");
   }
-
 }
 
 function createPhasedragonAnchor(name, number){
