@@ -2,10 +2,10 @@
 // @name          Arthoria: Statistiken
 // @namespace     Voltan
 // @description   Statistiken für Altar, Reittier, Kräuter und co.
-// @include       http://arthoria.de/*
+// @include       https://arthoria.de/*
 // @run-at        document-end
 // @grant         none
-// @version       1.5
+// @version       1.6
 
 // ==/UserScript==
 var statisticsVersion = 1.5; //GM_info.script.version won't work with opera12
