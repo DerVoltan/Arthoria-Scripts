@@ -2,9 +2,9 @@
 // @name        Arthoria: Autokampfeinstellungen
 // @namespace   Voltan
 // @description Personalisierung der Autokampfeinstellungen
-// @include     http://arthoria.de/*
+// @include     https://arthoria.de/*
 // @run-at      document-end
-// @version     1.6
+// @version     1.7
 // @grant       none
 
 // ==/UserScript==
@@ -565,7 +565,15 @@ function getAllAttackspells(){
     "Feuersturm": 145,
     "Schlammlawine": 146,
     "Steinwirbel": 147,
-    "Hagelsturm": 148
+    "Hagelsturm": 148,
+	"Feuerspeer": 163,
+	"Wasserspeer": 164,
+	"Erdspeer": 165,
+	"Luftspeer": 166,
+	"Feuerspeer (groß)": 167,
+	"Wasserspeer (groß)": 168,
+	"Erdspeer (groß)": 169,
+	"Luftspeer (groß)": 170
   };
   return spells;
 }
@@ -644,7 +652,19 @@ function getAllSpells(){
     "Zauberfächer": 157,
     "Toxinwelle": 142,
     "Metallschrapnell": 153,
-    "Kristallschrapnell": 154
+    "Kristallschrapnell": 154,
+	"Feuerspeer": 163,
+	"Wasserspeer": 164,
+	"Erdspeer": 165,
+	"Luftspeer": 166,
+	"Feuerspeer (groß)": 167,
+	"Wasserspeer (groß)": 168,
+	"Erdspeer (groß)": 169,
+	"Luftspeer (groß)": 170,
+	"Lichtumhang": 159,
+	"Schattenumhang": 160,
+	"Prismasturm": 162,
+	"Chaossturm": 161 
   };
   return spells;
 }
@@ -709,6 +729,15 @@ function getAllMonsters(){
         "Palinu-Hammerschwinger",
         "Palinu-Zeremonienmeister",
         "Palinu-König (Boss)"
+      ],
+      "Trollschlucht":[
+        "Höhlentroll",
+        "Trollwache",
+        "Kampftroll"
+      ],
+      "Pfad der Verdammnis":[
+        "Ringgeist",
+        "Hexenmeister (Boss)"
       ]
     },
     "variable Gebiete":{
@@ -785,6 +814,7 @@ function getAllMonsters(){
         "Frostdural",
         "Lavakäfer",
         "Staubdämon",
+		"Protoblob",
         "Regenbogenritter",
         "goldene Sphäre"
       ],
