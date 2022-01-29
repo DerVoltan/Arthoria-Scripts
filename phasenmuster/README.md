@@ -7,6 +7,10 @@ Definitiv keine Allzweckwaffe... Werde ich im Laufe des Jahres überarbeiten, sc
 **Mila** und **Kurgan** fürs Testen
 
 ## Changelog
+v1.4
+ - https
+ - Update der Vergleichswerte für Vivaldi (ab 5.0)
+
 v1.3
  - Scriptstart überarbeitet, damit er nicht mehr durch andere Scripts blockiert wird.
 

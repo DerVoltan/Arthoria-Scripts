@@ -8,7 +8,7 @@
 // @version       1.6
 
 // ==/UserScript==
-var statisticsVersion = 1.5; //GM_info.script.version won't work with opera12
+var statisticsVersion = 1.6; //GM_info.script.version won't work with opera12
 var data = {}; // exactly. data. because it contains data. seems legit.
 var nbsp = "\xa0";
 var nbspSpan = "<span>\xa0\xa0</span>";

@@ -10,7 +10,7 @@
 // ==/UserScript==
 
 var spellhelperData = {};
-var spellhelperVersion = 1.6;
+var spellhelperVersion = 1.7;
 
 window.addEventListener ("load", loadSpellhelper, false);
 

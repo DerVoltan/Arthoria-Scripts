@@ -2,6 +2,10 @@
 Betrachtet nur das erste, nicht ausgelöschte Monster auf Gegnerseite. Könnte man deutlich weiter ausbauen (eigene Monstergruppen festlegen etc.), aber da hab ich aktuell keinen Bock zu...
 
 ## Changelog
+v1.7
+ - https
+ - Update der Zauber und Monster
+
 v1.6
   - Versionskontrolle verweist nun auf Github
 

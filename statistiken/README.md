@@ -6,6 +6,9 @@ Ein besonderer Dank gilt **Elandion** und **Mila**, die mir eine enorme Menge Fe
 Auch danke ich **kaefer** für den Hinweis zu der externen Versionskontrolle und den Verweis auf die Steine der Geduld.
 
 ## Changelog
+v1.6
+ - https
+
 v1.5
  - Auswahl in Statistikübersicht springt sofort auf die aktuell aktiven Werte des Charakters
  - Versionskontrolle verweist nun auf Github
