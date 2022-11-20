@@ -5,10 +5,10 @@
 // @include       https://arthoria.de/*
 // @run-at        document-end
 // @grant         none
-// @version       1.7
+// @version       1.75
 
 // ==/UserScript==
-var statisticsVersion = 1.7; //GM_info.script.version won't work with opera12
+var statisticsVersion = 1.75; //GM_info.script.version won't work with opera12
 var data = {}; // exactly. data. because it contains data. seems legit.
 var nbsp = "\xa0";
 var nbspSpan = "<span>\xa0\xa0</span>";
@@ -3142,7 +3142,7 @@ function altarDataInput(line){
     }
     enddata["prayHarvestCount"]++;
 
-  }else if(line.indexOf(" geheilt") || line.indexOf(" sich erfrischt")>-1){
+  }else if(line.indexOf(" geheilt")>-1 || line.indexOf("sich erfrischt")>-1){
     if(!enddata["prayHealCount"]){
       enddata["prayHealCount"] = 0;
     }
@@ -3154,7 +3154,7 @@ function altarDataInput(line){
     }
     enddata["prayActionpointsCount"]++;
 
-  }else if(line.indexOf("Verteidigung für eine ")>-1){
+  }else if(line.indexOf("Verteidigung")>-1){
     if(!enddata["prayProtbuffCount"]){
       enddata["prayProtbuffCount"] = 0;
     }
