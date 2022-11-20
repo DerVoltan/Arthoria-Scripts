@@ -5,10 +5,10 @@
 // @include       https://arthoria.de/*
 // @run-at        document-end
 // @grant         none
-// @version       1.7
+// @version       1.6
 
 // ==/UserScript==
-var statisticsVersion = 1.7; //GM_info.script.version won't work with opera12
+var statisticsVersion = 1.6; //GM_info.script.version won't work with opera12
 var data = {}; // exactly. data. because it contains data. seems legit.
 var nbsp = "\xa0";
 var nbspSpan = "<span>\xa0\xa0</span>";
@@ -369,8 +369,8 @@ function checkSiteforAutoupdates(){
   }else if(url.indexOf("p=mansion")>-1){
     var boxcontent = $("#mansiongarden").html().split("<br>");
     $.each(boxcontent, function(ind, line){
-      if(line.indexOf("(Stufe ")>-1){
-        var gardenlvl = parseInt(line.substring(line.indexOf("Stufe ")+6, line.indexOf(")")));
+      if(line.indexOf("Du besitzt einen Kräutergarten Stufe ")>-1){
+        var gardenlvl = parseInt(line.substring(line.indexOf("Stufe ")+6, line.indexOf(".")));
         if(isNumeric(gardenlvl)){
           data["options"]["character"]["gardenlvl"] = gardenlvl;
         }
@@ -379,8 +379,8 @@ function checkSiteforAutoupdates(){
 
     var boxcontent = $("#mansionaltar").html().split("<br>");
     $.each(boxcontent, function(ind, line){
-      if(line.indexOf("Stufe ")>-1){
-        var altarlvl = parseInt(line.substring(line.indexOf("Stufe ")+6, line.indexOf(")")));
+      if(line.indexOf("Du besitzt einen Altar Stufe")>-1){
+        var altarlvl = parseInt(line.substring(line.indexOf("Stufe ")+6, line.indexOf(".")));
         if(isNumeric(altarlvl)){
           data["options"]["character"]["altarlvl"] = altarlvl;
         }
@@ -388,7 +388,7 @@ function checkSiteforAutoupdates(){
     });
     var boxcontent = $("#mansionstable").html().split("<br>");
     $.each(boxcontent, function(ind, line){
-      if(line.indexOf("Stufe ")>-1){
+      if(line.indexOf("Deine Stallung ist auf Stufe")>-1){
         var stablelvl = parseInt(line.substring(line.indexOf("Stufe ")+6, line.indexOf("Stufe ")+7));
         if(isNumeric(stablelvl)){
           data["options"]["character"]["stablelvl"] = stablelvl;
@@ -3142,7 +3142,7 @@ function altarDataInput(line){
     }
     enddata["prayHarvestCount"]++;
 
-  }else if(line.indexOf(" geheilt") || line.indexOf(" sich erfrischt")>-1){
+  }else if(line.indexOf(" geheilt")>-1){
     if(!enddata["prayHealCount"]){
       enddata["prayHealCount"] = 0;
     }
@@ -3730,8 +3730,8 @@ function statisticsInternalVersioncontrol(){
       installedversion = 1.4;
     }
 
-    if(installedversion < statisticsVersion){ //set version up2date
-      installedversion = statisticsVersion;
+    if(installedversion < 1.5){
+      installedversion = 1.5;
     }
     //add code here, if there were some changes to the DB between versions
 

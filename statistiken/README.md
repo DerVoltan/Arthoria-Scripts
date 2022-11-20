@@ -6,6 +6,11 @@ Ein besonderer Dank gilt **Elandion** und **Mila**, die mir eine enorme Menge Fe
 Auch danke ich **kaefer** für den Hinweis zu der externen Versionskontrolle und den Verweis auf die Steine der Geduld.
 
 ## Changelog
+v1.7
+- "erfrischt" beim Altar inkludiert
+- automatische Erkennung der Ausbaustufen wiederhergestellt
+Vielen Dank an **Anno** für die Hinweise!
+
 v1.6
  - https
 
