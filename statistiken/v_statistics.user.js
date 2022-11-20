@@ -5,10 +5,10 @@
 // @include       https://arthoria.de/*
 // @run-at        document-end
 // @grant         none
-// @version       1.75
+// @version       1.8
 
 // ==/UserScript==
-var statisticsVersion = 1.75; //GM_info.script.version won't work with opera12
+var statisticsVersion = 1.8; //GM_info.script.version won't work with opera12
 var data = {}; // exactly. data. because it contains data. seems legit.
 var nbsp = "\xa0";
 var nbspSpan = "<span>\xa0\xa0</span>";
@@ -1654,6 +1654,11 @@ function getStatisticsContent(somedata){
       });
       $(statisticsTable).append(chancesrow);
       $(statisticsTable).append(avgrow);
+	  
+	  $(dataOverviewDiv).append("<br>").append("<b>Gold/&#9815;: "+round((somedata["prayGoldAmount"] / parseInt(somedata["prayCount"])),2)+"</b>");
+	  $(dataOverviewDiv).append("<br>").append("<b>Gold/h: "+round(((somedata["prayGoldAmount"] / parseInt(somedata["prayCount"])*5))/60,2)+"</b>").append("<br>");
+	  $(dataOverviewDiv).append("<br>").append("<b>EP/&#9815;: "+round((somedata["prayEPAmount"] / parseInt(somedata["prayCount"])),2)+"</b>");
+	  $(dataOverviewDiv).append("<br>").append("<b>EP/h: "+round(((somedata["prayEPAmount"] / parseInt(somedata["prayCount"])*5))/60,2)+"</b>").append("<br>");
     break;
 
     case "horse":

@@ -6,6 +6,9 @@ Ein besonderer Dank gilt **Elandion** und **Mila**, die mir eine enorme Menge Fe
 Auch danke ich **kaefer** für den Hinweis zu der externen Versionskontrolle und den Verweis auf die Steine der Geduld.
 
 ## Changelog
+v1.8
+- Durchschnittswerte fürs Beten hinzugefügt
+
 v1.75
 - Fix für Bet-Ergebnis
 
