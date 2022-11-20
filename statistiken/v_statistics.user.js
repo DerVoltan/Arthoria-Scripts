@@ -1658,7 +1658,7 @@ function getStatisticsContent(somedata){
 	  $(dataOverviewDiv).append("<br>").append("<b>Gold/&#9815;: "+round((somedata["prayGoldAmount"] / parseInt(somedata["prayCount"])),2)+"</b>");
 	  $(dataOverviewDiv).append("<br>").append("<b>Gold/h: "+round(((somedata["prayGoldAmount"] / parseInt(somedata["prayCount"])))*12,2)+"</b>").append("<br>");
 	  $(dataOverviewDiv).append("<br>").append("<b>EP/&#9815;: "+round((somedata["prayEPAmount"] / parseInt(somedata["prayCount"])),2)+"</b>");
-	  $(dataOverviewDiv).append("<br>").append("<b>EP/h: "+round(((somedata["prayEPAmount"] / parseInt(somedata["prayCount"]))*12,2)+"</b>").append("<br>");
+	  $(dataOverviewDiv).append("<br>").append("<b>EP/h: "+round(((somedata["prayEPAmount"] / parseInt(somedata["prayCount"])))*12,2)+"</b>").append("<br>");
     break;
 
     case "horse":
